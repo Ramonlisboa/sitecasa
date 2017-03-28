@@ -36,9 +36,16 @@ $(document).ready(function(){
 
 	//--- FORMS ---\\
 
-	$('#crudForm').find('input').each(function(){
-		$(this).removeClass('form-control');
-	})
+//	$('#crudForm').find('input').each(function(){
+//		$(this).removeClass('form-control');
+//	});
+	
+	//--- TABLES ---\\
+	$('table.dataTable').find('td').each(function(){
+		if($(this).html() === 'active'){
+			$(this).html('<i class="fa fa-check"></i>');
+	    }
+	});
 
 
 	console.log('Fim Script');

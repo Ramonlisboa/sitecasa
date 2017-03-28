@@ -9,12 +9,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="<?=base_url() ?>">Administração do Site da Casa do Autista</a>
-            </div>
-            <!-- Top Menu Items -->
-          
-            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav side-nav">
+                <ul class="nav navbar-nav ">
                     <li class="active">
                         <a href='<?php echo site_url('admin/')?>'><i class="fa fa-fw fa-dashboard"></i> Home</a> 
                     </li>
@@ -37,5 +32,11 @@
                     </li>
                 </ul>
             </div>
-            <!-- /.navbar-collapse -->
+            <!-- Top Menu Items -->
+          
+       <?php /*     <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                
+            </div>
+            <!-- /.navbar-collapse --> */?>
         </nav>

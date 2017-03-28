@@ -60,9 +60,13 @@ class Admin extends CI_Controller {
 			$crud->set_theme('datatables');
 			$crud->set_table('postagem');
 			$crud->set_relation('categoria_id','categoria','nome');
+			$crud->display_as('categoria_id','Categoria');
+			$crud->display_as('flimg','Possui Imagem?');
+			$crud->display_as('img_destaque','Imagem');
 			$crud->set_subject('Postagens');
 			$crud->required_fields('categoria_id','titulo','conteudo');
-			$crud->columns('categoria_id','titulo','alias','publicado','dt_cadastro','conteudo');
+			$crud->set_field_upload('img_destaque','assets/uploads/postagem');
+			$crud->columns('categoria_id','titulo','alias','publicado','dt_cadastro','conteudo','img_destaque');
 
 			$output = $crud->render();
 

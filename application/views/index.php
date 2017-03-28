@@ -96,25 +96,23 @@
 	  <div class="wrapper2 col4">
   <div id="latest">
     <ul>
-      <li>
-        <h2>Faaa<br> ni tndedo <br> Padf Padf</h2>
-        <p class="imgl"><img src="<?=base_url('site/')?>/images/slide_01.jpg" alt="#" width="259" height="200"></p>
-        <p>Aflfbhfb fihgfbs vkishgjsbgs. Aeorj fbsjbf vgbnslgns glskngbsnglsbgls vsjbgfsd sjdbgsjbgjsgs.<br><br>
-         <a href="http://www.casadoautista.com.br/noticia1.html">Leia Mais »</a></p>
+	  <?php if($aNoticias){
+	  	$i=0;
+	  	foreach ($aNoticias as $o){
+	  		$i++;
+	  		?>
+      <li <?= ($i % 3 == 0)? 'class="last"':'' ?>>
+        <h2><?=$o->titulo ?></h2>
+        <p class="imgl"><img src="<?=base_url('assets/uploads/postagem') . '/' .  $o->img_destaque?>" alt="#" width="259" height="200"></p>
+        <p><? echo substr($o->conteudo,0,50); ?><br><br>
+         <a href="<?=site_url('portal/') . '/' . $o->alias ?>">Leia Mais »</a></p>
       </li>
-	  <li>
-        <h2>Afhjdgfsi PsjdhgfaiuQcdgvdQ QQWRQ Aahfvhas</h2>
-        <p class="imgl"><img src="<?=base_url('site/')?>/images/slide_02(1).jpg" alt="#" width="259" height="200"></p>
-        <p>Aflfbhfb fihgfbs vkishgjsbgs. Aeorj fbsjbf vgbnslgns glskngbsnglsbgls vsjbgfsd sjdbgsjbgjsgs.<br><br>
-        <a href="http://www.casadoautista.com.br/noticia2.html">Leia Mais »</a></p>
-      </li>
-	  
-	   <li class="last">
-        <h2>Afhjdgfsi PsjdhgfaiuQcdgvdQ QQWRQ Aahfvhas</h2>
-        <p class="imgl"><img src="<?=base_url('site/')?>/images/slide-03.jpg" alt="#" width="259" height="200"></p>
-        <p>Aflfbhfb fihgfbs vkishgjsbgs. Aeorj fbsjbf vgbnslgns glskngbsnglsbgls vsjbgfsd sjdbgsjbgjsgs.<br><br>
-        <a href="http://www.casadoautista.com.br/noticia3.html">Leia Mais »</a></p>
-      </li>
+	  		
+	  		<?php 
+	  	}
+	  }
+	  	
+	  	?>
 	  
       <li>
         <h2>Afhjdgfsi PsjdhgfaiuQcdgvdQ QQWRQ Aahfvhas</h2>
