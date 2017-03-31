@@ -63,6 +63,7 @@ class Admin extends CI_Controller {
 			$crud->display_as('categoria_id','Categoria');
 			$crud->display_as('flimg','Possui Imagem?');
 			$crud->display_as('img_destaque','Imagem');
+			$crud->display_as('dt_cadastro','Data do Cadastro');
 			$crud->set_subject('Postagens');
 			$crud->required_fields('categoria_id','titulo','conteudo');
 			$crud->set_field_upload('img_destaque','assets/uploads/postagem');
@@ -74,6 +75,30 @@ class Admin extends CI_Controller {
 
 			$this->_admin_output($output);
 
+		}catch(Exception $e){
+			show_error($e->getMessage().' --- '.$e->getTraceAsString());
+		}
+	}
+	
+	public function banner_gerencia()
+	{
+		try{
+			$crud = new grocery_CRUD();
+			
+			$crud->set_theme('datatables');
+			$crud->set_table('banner');
+			$crud->set_subject('Banners');
+			$crud->required_fields('name','imagem','dt_cadastro');
+			$crud->display_as('dt_cadastro','Data do Cadastro');
+			$crud->set_field_upload('imagem','assets/uploads/banner');
+			$crud->columns('name','imagem','publicado','dt_cadastro');
+			
+			$output = $crud->render();
+			
+			//$output['title'] = 'Gerenciador de Menus';
+			
+			$this->_admin_output($output);
+			
 		}catch(Exception $e){
 			show_error($e->getMessage().' --- '.$e->getTraceAsString());
 		}

@@ -9,7 +9,12 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="<?=base_url() ?>">Administração do Site da Casa do Autista</a>
-                <ul class="nav navbar-nav ">
+               
+            <!-- Top Menu Items -->
+          
+           <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                 <ul class="nav navbar-nav side-nav">
                     <li class="active">
                         <a href='<?php echo site_url('admin/')?>'><i class="fa fa-fw fa-dashboard"></i> Home</a> 
                     </li>
@@ -18,6 +23,9 @@
                     </li>
                     <li>
                         <a href='<?php echo site_url('admin/postagem_gerencia')?>'><i class="fa fa-fw fa-file"></i> Postagem</a>  
+                    </li>                  
+                    <li>
+                        <a href='<?php echo site_url('admin/banner_gerencia')?>'><i class="fa fa-fw fa-image"></i> Banner</a>  
                     </li>                  
                     <li> 
                         <a href="javascript:;" data-toggle="collapse" data-target="#apoio"><i class="fa fa-fw fa-table"></i> Tabelas Apoio <i class="fa fa-fw fa-caret-down"></i></a>
@@ -32,11 +40,6 @@
                     </li>
                 </ul>
             </div>
-            <!-- Top Menu Items -->
-          
-       <?php /*     <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                
             </div>
-            <!-- /.navbar-collapse --> */?>
+           
         </nav>
