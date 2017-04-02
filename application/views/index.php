@@ -10,87 +10,29 @@
 	
    
   <!--=========== BEGIN SLIDER SECTION ================-->
-  <div id="margtopslide">
+   <div id="margtopslide">
     <section id="sliderArea ">
       <!-- Start slider wrapper -->      
-      <div class="top-slider imgl slick-initialized slick-slider">
+      <div class="top-slider imgl">
+      <?php if($aBanner){
+        foreach ($aBanner as $o){
+          ?>
         <!-- Start First slide -->
-        <div class="slick-list draggable" tabindex="0"><div class="slick-track" style="opacity: 1; width: 4200px;"><div class="top-slide-inner slick-slide" index="0" style="width: 840px; position: relative; left: 0px; top: 0px; z-index: 800; opacity: 0;">
-          <div class="slider-img">
-            <img src="<?=base_url('site/')?>/images/slides_01.jpg" alt="">
-          </div>
-         <!--  <div class="slider-text">
-            <h2>A <strong>Casa do Autista</strong> oferece atendimento especializado.</h2>
-            <p><strong>Equipe Multiprofissional</strong> voltada para o desenvolvimento integral do assistido.</p>
-            <div class="readmore_area">
-              <a data-hover="Read More" href="#"><span>Leia mais</span></a>                
+          <div class="top-slide-inner">
+            <div class="slider-img">
+              <img src="<?=base_url('assets/uploads/banner/')?>/<?=$o->imagem?>" alt="">
             </div>
-          </div> -->
-        </div><div class="top-slide-inner slick-slide" index="1" style="width: 840px; position: relative; left: -840px; top: 0px; z-index: 800; opacity: 0;">
-          <div class="slider-img">
-            <img src="<?=base_url('site/')?>/images/slide_02.jpg" alt="">
           </div>
-         <!--  <div class="slider-text">
-            <h2>A<strong>Casa do Autista</strong> precisa de sua ajuda para continuar.</h2>
-            <p><strong>Adote um Autista!</strong> conheça essa campanha.</p>
-            <div class="readmore_area">
-              <a data-hover="Read More" href="#"><span>Leia mais</span></a>                
-            </div>
-          </div> -->
-        </div><div class="top-slide-inner slick-slide slick-active" index="2" style="width: 840px; position: relative; left: -1680px; top: 0px; z-index: 900; opacity: 1;">
-          <div class="slider-img">
-            <img src="<?=base_url('site/')?>/images/slide_03.jpg" alt="">
-          </div>
-         <!--  <div class="slider-text">
-            <h2>A <strong>Casa do Autista</strong> precisa de voluntários.</h2>
-            <p><strong>Doe</strong> uma parte do seu tempo e conhecimento e promova um mundo melhor.</p>
-            <div class="readmore_area">
-              <a data-hover="Read More" href="#"><span>Leia Mais</span></a>                
-            </div>
-          </div> -->
-        </div><div class="top-slide-inner slick-slide" index="3" style="width: 840px; position: relative; left: -2520px; top: 0px; z-index: 800; opacity: 0;">
-          <div class="slider-img">
-            <img src="<?=base_url('site/')?>/images/slide_04.jpg" alt="">
-          </div>
-       <!--    <div class="slider-text">
-            <h2><strong>Casa do Autista</strong> promovendo o desenvolvimento de indivíduos autistas.</h2>
-            <p><strong>Venha </strong>e conheça esse trabalho.</p>
-            <div class="readmore_area">
-              <a data-hover="Read More" href="#"><span>Leia Mais</span></a>                
-            </div>
-          </div> -->
-        </div><div class="top-slide-inner slick-slide" index="4" style="width: 840px; position: relative; left: -3360px; top: 0px; z-index: 800; opacity: 0;">
-          <div class="slider-img">
-            <img src="<?=base_url('site/')?>/images/slide_05.jpg" alt="">
-          </div>
-        <!--   <div class="slider-text">
-            <h2>A <strong>Casa do Autista</strong> promove cursos e palestras.</h2>
-            <p><strong>Inscreva-se</strong> para o próximo Congresso Estadual sobre Autismo.</p>
-            <div class="readmore_area">
-              <a data-hover="Read More" href="#"><span>Leia Mais</span></a>                
-            </div>
-          </div> -->
-        </div></div></div>
+        <?
+            }
+          }
+        ?>
         <!-- End First slide -->
 
-        <!-- Start 2nd slide -->
-        
-        <!-- End 2nd slide -->
-
-        <!-- Start Third slide -->
-        
-        <!-- End Third slide -->
-
-        <!-- Start Fourth slide -->
-        
-        <!-- End Fourth slide -->
-
-        <!-- Start Fifth slide -->
-        
-        <!-- End Fifth slide -->
-      <button type="button" data-role="none" class="slick-prev" style="display: block;">Previous</button><button type="button" data-role="none" class="slick-next" style="display: block;">Next</button></div><!-- /top-slider -->
+       
+      </div><!-- /top-slider -->
     </section>
-	</div>
+  </div>
     <!--=========== END SLIDER SECTION ================-->
 	  
 	  <div class="wrapper2 col4">
@@ -100,12 +42,20 @@
 	  	$i=0;
 	  	foreach ($aNoticias as $o){
 	  		$i++;
+        $conteudo = substr($o->conteudo,0,10);
+        $urlImg = 'http://localhost/sitecasa/index.php/portal/noticias';
+        $urlImg .= '/' . $o->alias;
 	  		?>
       <li <?= ($i % 3 == 0)? 'class="last"':'' ?>>
         <h2><?=$o->titulo ?></h2>
-        <p class="imgl"><img src="<?=base_url('assets/uploads/postagem') . '/' .  $o->img_destaque?>" alt="#" width="259" height="200"></p>
-        <p><? echo substr($o->conteudo,0,50); ?><br><br>
-         <a href="<?=site_url('portal/') . '/' . $o->alias ?>">Leia Mais »</a></p>
+        <p class="imgl">
+        <a href="<?=$urlImg?>">
+        <img src="<?=base_url('assets/uploads/postagem') . '/' .  $o->img_destaque?>" alt="#" width="259" height="200">
+        </a>
+        </p>
+        <p><br><br>
+          <a href="<?=$urlImg?>">Leia Mais »</a>
+         </p>
       </li>
 	  		
 	  		<?php 
@@ -114,77 +64,13 @@
 	  	
 	  	?>
 	  
-      <li>
-        <h2>Afhjdgfsi PsjdhgfaiuQcdgvdQ QQWRQ Aahfvhas</h2>
-        <p class="imgl"><img src="<?=base_url('site/')?>/images/slide_01.jpg" alt="#" width="259" height="200"></p>
-        <p>Aflfbhfb fihgfbs vkishgjsbgs. Aeorj fbsjbf vgbnslgns glskngbsnglsbgls vsjbgfsd sjdbgsjbgjsgs.<br><br>
-        <a href="http://www.casadoautista.com.br/noticia2.html">Leia Mais »</a></p>
-      </li>
-	   <li>
-        <h2>Afhjdgfsi PsjdhgfaiuQcdgvdQ QQWRQ Aahfvhas</h2>
-        <p class="imgl"><img src="<?=base_url('site/')?>/images/slide_02(1).jpg" alt="#" width="259" height="200"></p>
-        <p>Aflfbhfb fihgfbs vkishgjsbgs. Aeorj fbsjbf vgbnslgns glskngbsnglsbgls vsjbgfsd sjdbgsjbgjsgs.<br><br>
-        <a href="http://www.casadoautista.com.br/noticia2.html">Leia Mais »</a></p>
-      </li>
-      <li class="last">
-        <h2>Afhjdgfsi PsjdhgfaiuQcdgvdQ QQWRQ Aahfvhas</h2>
-        <p class="imgl"><img src="<?=base_url('site/')?>/images/slide-03.jpg" alt="#" width="259" height="200"></p>
-        <p>Aflfbhfb fihgfbs vkishgjsbgs. Aeorj fbsjbf vgbnslgns glskngbsnglsbgls vsjbgfsd sjdbgsjbgjsgs.<br><br>
-        <a href="http://www.casadoautista.com.br/noticia3.html">Leia Mais »</a></p>
-      </li>
     </ul>
     <br class="clear">
   </div>
 </div>
       
-      
 <p></p>
 
-     
-     
-  <!--    <div id="comments">
-        <h2>Comments</h2>
-        <ul class="commentlist">
-          <li class="comment_odd">
-            <div class="author"><img class="avatar" src="images/demo/avatar.gif" width="32" height="32" alt="" /><span class="name"><a href="#">A Name</a></span> <span class="wrote">wrote:</span></div>
-            <div class="submitdate"><a href="#">August 4, 2009 at 8:35 am</a></div>
-            <p>This is an example of a comment made on a post. You can either edit the comment, delete the comment or reply to the comment. Use this as a place to respond to the post or to share what you are thinking.</p>
-          </li>
-          <li class="comment_even">
-            <div class="author"><img class="avatar" src="images/demo/avatar.gif" width="32" height="32" alt="" /><span class="name"><a href="#">A Name</a></span> <span class="wrote">wrote:</span></div>
-            <div class="submitdate"><a href="#">August 4, 2009 at 8:35 am</a></div>
-            <p>This is an example of a comment made on a post. You can either edit the comment, delete the comment or reply to the comment. Use this as a place to respond to the post or to share what you are thinking.</p>
-          </li>
-          <li class="comment_odd">
-            <div class="author"><img class="avatar" src="images/demo/avatar.gif" width="32" height="32" alt="" /><span class="name"><a href="#">A Name</a></span> <span class="wrote">wrote:</span></div>
-            <div class="submitdate"><a href="#">August 4, 2009 at 8:35 am</a></div>
-            <p>This is an example of a comment made on a post. You can either edit the comment, delete the comment or reply to the comment. Use this as a place to respond to the post or to share what you are thinking.</p>
-          </li>
-        </ul>
-      </div>
-      
-      <h2>Write A Comment</h2>
-      <div id="respond">
-        <form action="#" method="post">
-          <p>
-            <input type="text" name="name" id="name" value="" size="22" />
-            <label for="name"><small>Name (required)</small></label>
-          </p>
-          <p>
-            <input type="text" name="email" id="email" value="" size="22" />
-            <label for="email"><small>Mail (required)</small></label>
-          </p>
-          <p>
-            <textarea name="comment" id="comment" cols="100%" rows="10"></textarea>
-            <label for="comment" style="display:none;"><small>Comment (required)</small></label>
-          </p>
-          <p>
-            <input name="submit" type="submit" id="submit" value="Submit Form" />
-            &nbsp;
-            <input name="reset" type="reset" id="reset" tabindex="5" value="Reset Form" />
-          </p>
-        </form>
-      </div>-->
     </div>
 	
     <!--##################################################################################################################- -->

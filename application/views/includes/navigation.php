@@ -28,6 +28,17 @@
                         <a href='<?php echo site_url('admin/banner_gerencia')?>'><i class="fa fa-fw fa-image"></i> Banner</a>  
                     </li>                  
                     <li> 
+                        <a href="javascript:;" data-toggle="collapse" data-target="#apoio"><i class="fa fa-fw fa-picture-o"></i> Galerias <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="apoio" class="collapse">
+                            <li>
+                                <a href='<?php echo site_url('admin/galerias_gerencia')?>'><i class="fa fa-fw fa-tags"></i> Nova Galeria</a>  
+                            </li>
+                            <li>
+                                <a href='<?php echo site_url('admin/fotos_gerencia')?>'><i class="fa fa-fw fa-picture-o"></i>  Inserir Fotos</a> 
+                            </li>
+                        </ul>
+                    </li>                  
+                    <li> 
                         <a href="javascript:;" data-toggle="collapse" data-target="#apoio"><i class="fa fa-fw fa-table"></i> Tabelas Apoio <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="apoio" class="collapse">
                             <li>

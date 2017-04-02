@@ -14,8 +14,8 @@
                 <div class="line"></div>
               </div>
               
-              <form action="function_contact.php" method="post" class="submitphoto_form">
-                <input name="name" type="text" class="wp-form-control-contato wpcf7-text" placeholder="Nome">
+              <form action="<?=$_SERVER['PHP_SELF']?>" method="post" class="submitphoto_form">
+                <input name="nOme" type="text" class="wp-form-control-contato wpcf7-text" placeholder="Nome">
                 <input name="email" type="mail" class="wp-form-control-contato wpcf7-email" placeholder="Email">          
                 <input name="assunto" type="text" class="wp-form-control-contato wpcf7-text" placeholder="Assunto">
                 <textarea name="message" class="wp-form-control-contato wpcf7-textarea" cols="30" rows="10" placeholder="Escreva sua mensagem"></textarea>

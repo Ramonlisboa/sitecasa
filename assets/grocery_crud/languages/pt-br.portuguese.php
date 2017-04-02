@@ -1,7 +1,7 @@
 <?php
 /* Translated by rafael84 */
 	$lang['list_add'] 			= 'Adicionar';
-	$lang['list_actions'] 			= 'Ações';
+	$lang['list_actions'] 			= 'A&ccedil;&otilde;es';
 	$lang['list_page'] 			= 'Página';
 	$lang['list_paging_of'] 		= 'de';
 	$lang['list_displaying']		= 'Registros de {start} à {end}, num total de {results} registros';

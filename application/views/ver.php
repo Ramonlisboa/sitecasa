@@ -6,13 +6,13 @@
           <div class="blog-breadcrumbs-area">
             <div class="container">
               <div class="blog-breadcrumbs-left">
-                <h2><?=$aMenu[0]->nome?></h2>
+                <h2><?=$aContent[0]->nome?></h2>
               </div>
               <div class="blog-breadcrumbs-right">
                 <ol class="breadcrumb">
                   <li></li>
                   <li><a href="<?=site_url()?>">Home</a></li>                  
-                  <li class="active"><?=$aMenu[0]->nome?></li>
+                  <li class="active"><?=$aContent[0]->nome?></li>
                 </ol>
               </div>
             </div>
@@ -47,7 +47,7 @@
                             </div>
                             <div class="blog-content blog-details">
 							
-							<?=$aMenu[0]->conteudo?>
+							<?=$aContent[0]->conteudo?>
                                 
                               <h3><!-- Start Social Share-->                              </h3>
                               <div class="social-share">

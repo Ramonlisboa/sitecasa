@@ -29,4 +29,20 @@ class Postagem_model  extends CI_Model  {
     	if($result)
     		return $result;
     }
+
+    public function get_postagem_by_alias($cond)
+    {
+        try {
+            $this->db->select('*');
+            if($cond) $this->db->where($cond);
+            $result =  $this->db->get('postagem')->result();
+                            
+        } catch (Exception $e) {
+            echo 'Error: ' . $e->getCode . ' | ' . $e->getMessage();
+            return false;
+        }
+        
+        if($result)
+            return $result;
+    }
 }

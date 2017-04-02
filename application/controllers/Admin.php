@@ -88,10 +88,59 @@ class Admin extends CI_Controller {
 			$crud->set_theme('datatables');
 			$crud->set_table('banner');
 			$crud->set_subject('Banners');
-			$crud->required_fields('name','imagem','dt_cadastro');
+			$crud->required_fields('nome','imagem','dt_cadastro');
 			$crud->display_as('dt_cadastro','Data do Cadastro');
 			$crud->set_field_upload('imagem','assets/uploads/banner');
-			$crud->columns('name','imagem','publicado','dt_cadastro');
+			$crud->columns('nome','publicado','dt_cadastro','imagem');
+			
+			$output = $crud->render();
+			
+			//$output['title'] = 'Gerenciador de Menus';
+			
+			$this->_admin_output($output);
+			
+		}catch(Exception $e){
+			show_error($e->getMessage().' --- '.$e->getTraceAsString());
+		}
+	}
+
+	public function galerias_gerencia()
+	{
+		try{
+			$crud = new grocery_CRUD();
+
+			$crud->set_table('galerias');
+			$crud->set_subject('Galerias');
+			$crud->required_fields('nome','dt_cadastro');
+			$crud->columns('nome','dt_cadastro','ativa');
+
+			$output = $crud->render();
+
+			//$output['title'] = 'Gerenciador de Menus';
+
+			$this->_admin_output($output);
+
+		}catch(Exception $e){
+			show_error($e->getMessage().' --- '.$e->getTraceAsString());
+		}
+	}
+	
+	public function fotos_gerencia()
+	{
+		try{
+			$crud = new grocery_CRUD();
+			
+			$crud->set_theme('datatables');
+			$crud->set_table('fotos');
+			$crud->set_subject('Fotos');
+			$crud->set_relation('galeria_id','galerias','nome');
+			$crud->required_fields('galeria_id','nome','foto','dt_cadastro');
+			$crud->display_as('dt_cadastro','Data do Cadastro');
+			$crud->display_as('galeria_id','Galeria');
+			$crud->set_field_upload('foto','assets/uploads/galeria_foto');
+			$crud->columns('galeria_id','nome','dt_cadastro','foto','publicada');
+
+			$crud->unset_texteditor('descricao');
 			
 			$output = $crud->render();
 			
